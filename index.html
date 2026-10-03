@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP32 Audio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <div class="header">
+        <div class="logo">ESP32</div>
+        <div>
+          <h1>Mensaje de audio</h1>
+          <p>Envía un MP3 al dispositivo de forma remota.</p>
+        </div>
+      </div>
+
+      <div id="dropZone" class="drop-zone">
+        <input id="fileInput" type="file" accept=".mp3,audio/mpeg" hidden>
+        <div class="upload">↑</div>
+        <h2>Selecciona tu mensaje</h2>
+        <p>Solo archivos MP3 · máximo 25 MB</p>
+        <button id="selectBtn" class="secondary">Elegir MP3</button>
+        <div id="fileInfo" class="file-info hidden"></div>
+      </div>
+
+      <audio id="preview" class="hidden" controls></audio>
+
+      <button id="sendBtn" class="primary" disabled>Enviar al ESP32</button>
+
+      <div id="progressArea" class="hidden">
+        <div class="progress"><div id="progressBar"></div></div>
+        <p id="progressText">Preparando...</p>
+      </div>
+
+      <div id="status" class="status hidden"></div>
+
+      <div class="device">
+        <div>
+          <span class="label">Dispositivo</span>
+          <strong>ESP32-01</strong>
+        </div>
+        <div id="deviceState" class="offline">● Desconectado</div>
+      </div>
+    </section>
+
+    <section class="card instructions">
+      <h2>Cómo funciona</h2>
+      <div><b>1</b><span>Seleccionas un MP3.</span></div>
+      <div><b>2</b><span>La página lo guarda en la nube.</span></div>
+      <div><b>3</b><span>El ESP32 recibe la notificación por Internet.</span></div>
+      <div><b>4</b><span>El ESP32 descarga y guarda el MP3 en la microSD.</span></div>
+      <div><b>5</b><span>Presionas el botón físico y reproduce el último mensaje.</span></div>
+    </section>
+
+    <footer>ESP32 Audio Remote</footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
